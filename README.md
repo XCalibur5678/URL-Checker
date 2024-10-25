@@ -12,10 +12,6 @@ This is a lightweight, URL-based malware detection tool built using **Streamlit*
 - **Malware Detection**: Uses a trained machine learning model to classify URLs as malicious or safe.
 - **Minimalist UI**: Designed with a simple interface for better user experience.
 
-## Demo
-
-![Screenshot](assets/screenshot.png)
-
 ## Getting Started
 
 ### Prerequisites
@@ -36,8 +32,8 @@ pip install -r requirements.txt
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/malware-detection-tool.git
-   cd malware-detection-tool
+   git clone https://github.com/xcalibur5678/URL-checker.git
+   cd URL-checker
    ```
 
 2. **Install dependencies**:
