@@ -2,18 +2,21 @@
 
 # Malware Detection Tool
 
-This is a lightweight, URL-based malware detection tool built using **Streamlit**. It allows users to input URLs and checks if they are malicious, providing instant feedback in a simple, minimalistic user interface.
+This is a lightweight, URL-based malware detection tool built using **Streamlit**. It allows users to input URLs and to check if the URL are malicious, providing instant feedback in a simple, minimalistic user interface.
 
 ## Features
 
 - **URL Validation**: Ensures the input URL is valid before checking.
 - **Loading Animation**: Displays a loading indicator while the URL is being processed.
-- **Real-Time Check**: URL analysis is triggered when pressing **Enter** (no submit button, for a clean UI).
-- **Malware Detection**: Uses a trained machine learning model to classify URLs as malicious or safe.
+- **Real-Time Check**: URL analysis is triggered when pressing **Enter**
+- **Malware Detection**: Uses a trained Reccurent Neural Network(RNN) model to classify URLs as malicious or safe.
 - **Minimalist UI**: Designed with a simple interface for better user experience.
 - **Efficacy**: Has an Accurracy of 92.84% 
 
 ## Getting Started
+You can view and use the app from the live link : malicious-url-checker.streamlit.app
+
+##To use the app locally , follow this guide 
 
 ### Prerequisites
 
@@ -21,7 +24,9 @@ Before running the app, make sure you have the following installed:
 
 - Python 3.8+
 - Streamlit
-- Other dependencies as listed in `requirements.txt`.
+- Pytorch
+- Scikit-learn
+- Pandas
 
 You can install the required Python packages with:
 
@@ -47,7 +52,7 @@ pip install -r requirements.txt
 To start the app, use the following command:
 
 ```bash
-streamlit run app.py
+streamlit run inference.py
 ```
 
 This will open the application in your browser at `http://localhost:8501`.
@@ -70,22 +75,6 @@ Here's an example of how the app works:
 - The URL validation ensures that the user enters a valid URL format (must start with `http://` or `https://`).
 - If an invalid URL is entered, an error message will be displayed, prompting the user to correct the input.
 
-## Customization
-
-You can further improve or customize the project by:
-- Adding more features like **file uploads** for deeper malware analysis.
-- Integrating other machine learning models for enhanced URL detection.
-- Changing the UI layout with Streamlit's additional options.
-
-## Project Structure
-
-```bash
-.
-├── app.py                   # Main Streamlit app
-├── malware_model.py          # Malware detection model logic
-├── requirements.txt          # Python dependencies
-└── README.md                 # Project readme file
-```
 
 ## Contributing
 
