@@ -14,7 +14,7 @@ This is a lightweight, URL-based malware detection tool built using **Streamlit*
 - **Efficacy**: Has an Accurracy of 92.84% 
 
 ## Getting Started
-You can view and use the app from the [live link](malicious-url-checker.streamlit.app)
+You can view and use the app from the [live link](https://malicious-url-checker.streamlit.app/)
 
 ##To use the app locally , follow this guide 
 
