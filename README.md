@@ -1,5 +1,3 @@
-Here's a clean and well-organized `README.md` for your malware detection tool, covering the setup, usage, and features:
-
 ---
 
 # Malware Detection Tool
