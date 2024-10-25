@@ -11,6 +11,7 @@ This is a lightweight, URL-based malware detection tool built using **Streamlit*
 - **Real-Time Check**: URL analysis is triggered when pressing **Enter** (no submit button, for a clean UI).
 - **Malware Detection**: Uses a trained machine learning model to classify URLs as malicious or safe.
 - **Minimalist UI**: Designed with a simple interface for better user experience.
+- **Efficacy**: Has an Accurracy of 92.84% 
 
 ## Getting Started
 
