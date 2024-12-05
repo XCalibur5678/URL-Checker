@@ -71,32 +71,31 @@ with col1:
                     return df
 
                 df = extract_features(df)
-
-                # Define the same model architecture as used during training
+                
                 class RNNClassifier(nn.Module):
                     def __init__(self, input_dim, hidden_dim, output_dim, additional_feature_dim):
                         super(RNNClassifier, self).__init__()
                         self.rnn = nn.LSTM(input_dim, hidden_dim, batch_first=True)
-                        self.fc1 = nn.Linear(hidden_dim + additional_feature_dim, 128)  # Combine RNN output with additional features
+                        self.fc1 = nn.Linear(hidden_dim + additional_feature_dim, 128) 
                         self.fc2 = nn.Linear(128, output_dim)
                     
                     def forward(self, rnn_input, additional_features):
                         h, _ = self.rnn(rnn_input)
-                        h = h[:, -1, :]  # Get the last hidden state
+                        h = h[:, -1, :]  
                         
-                        # Concatenate RNN output and additional features
+        
                         combined_input = torch.cat((h, additional_features), dim=1)
                         
-                        # Pass through fully connected layers
+                        
                         x = torch.relu(self.fc1(combined_input))
                         out = torch.sigmoid(self.fc2(x))
                         return out
 
-                # Initialize the model with the same parameters used during training
-                input_dim = 1  # Single character (ASCII value)
+                
+                input_dim = 1  
                 hidden_dim = 64
-                output_dim = 1  # Binary classification
-                additional_feature_dim = 5  # Number of additional features (change based on your data)
+                output_dim = 1  
+                additional_feature_dim = 5  
 
                 model = RNNClassifier(input_dim, hidden_dim, output_dim, additional_feature_dim)
 
@@ -115,21 +114,21 @@ with col1:
                         padded_sequences[i, :seq_len] = torch.tensor(seq[:seq_len], dtype=torch.float32)
                     return padded_sequences
 
-                # Assuming you have new data in the same format
-                rnn_data = pad_sequences_torch(df['tokenized_url'], max_len)  # Apply the same padding function
+                
+                rnn_data = pad_sequences_torch(df['tokenized_url'], max_len)  
                 additional_data = df[['special_char_count', 'subdomain_count', 'has_ip', 'entropy', 'has_suspicious_name']].values
 
-                # Convert to tensors
+                
                 rnn_data = torch.tensor(rnn_data, dtype=torch.float32)
                 additional_data = torch.tensor(additional_data, dtype=torch.float32)
 
-                # Make sure the RNN data has the correct input dimension
-                rnn_data = rnn_data.unsqueeze(-1)  # Add input dimension for RNN
+                
+                rnn_data = rnn_data.unsqueeze(-1)  
 
-                # Pass the data through the model to get predictions
-                with torch.no_grad():  # No need to calculate gradients during inference
+                
+                with torch.no_grad(): 
                     prediction = model(rnn_data, additional_data)
-                    predicted_label = (prediction > 0.5).int()  # Convert probabilities to binary labels
+                    predicted_label = (prediction > 0.5).int()  
 
             if predicted_label == 1:
                 st.write("The URL is malicious")
