@@ -7,8 +7,6 @@ This is a lightweight, URL-based malware detection tool built using **Streamlit*
 ## Features
 
 - **URL Validation**: Ensures the input URL is valid before checking.
-- **Loading Animation**: Displays a loading indicator while the URL is being processed.
-- **Real-Time Check**: URL analysis is triggered when pressing **Enter**
 - **Malware Detection**: Uses a trained Reccurent Neural Network(RNN) model to classify URLs as malicious or safe.
 - **Minimalist UI**: Designed with a simple interface for better user experience.
 - **Efficacy**: Has an Accurracy of 92.84% 
@@ -67,7 +65,7 @@ This will open the application in your browser at `http://localhost:8501`.
 
 Here's an example of how the app works:
 
-1. Input: `http://example.com`
+1. Input: `http://web.whatsapp.com`
 2. Result: `The URL is safe.`
 
 ## Validation
